@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "quick_links_globals",
+  "info": {
+    "singularName": "quick-links-global",
+    "pluralName": "quick-links-globals",
+    "displayName": "QuickLinksGlobal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "QuickLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quick-links.quick-links"
+    }
+  }
+}

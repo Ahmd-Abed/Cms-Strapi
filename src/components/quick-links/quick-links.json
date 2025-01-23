@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_quick_links_quick_links",
+  "info": {
+    "displayName": "QuickLinks",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "quick_links_collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quick-links-collection.quick-links-collection"
+    }
+  }
+}
