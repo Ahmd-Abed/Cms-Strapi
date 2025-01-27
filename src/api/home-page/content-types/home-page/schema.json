@@ -25,7 +25,6 @@
       "type": "dynamiczone",
       "components": [
         "about.about",
-        "news.news",
         "quick-links.quick-links",
         "carousel.carousel"
       ]
@@ -45,6 +44,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::carousel-collection.carousel-collection"
+    },
+    "news_collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-collection.news-collection"
     }
   }
 }

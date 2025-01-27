@@ -632,12 +632,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'api::carousel-collection.carousel-collection'
     >;
     ContentHomePage: Schema.Attribute.DynamicZone<
-      [
-        'about.about',
-        'news.news',
-        'quick-links.quick-links',
-        'carousel.carousel',
-      ]
+      ['about.about', 'quick-links.quick-links', 'carousel.carousel']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -658,6 +653,10 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    news_collections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-collection.news-collection'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
