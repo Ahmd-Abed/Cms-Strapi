@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_footer_sub_footer_links",
+  "info": {
+    "displayName": "SubFooterLink",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "IsShown": {
+      "type": "boolean"
+    }
+  }
+}

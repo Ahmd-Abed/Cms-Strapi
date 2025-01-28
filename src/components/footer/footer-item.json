@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_footer_footer_items",
+  "info": {
+    "displayName": "FooterItem",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "Footer": {
+      "type": "component",
+      "repeatable": true,
+      "component": "footer.sub-footer-link"
+    },
+    "IsShown": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

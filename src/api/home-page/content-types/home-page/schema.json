@@ -49,6 +49,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::news-collection.news-collection"
+    },
+    "Footer": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "footer.footer-item"
+      ]
     }
   }
 }

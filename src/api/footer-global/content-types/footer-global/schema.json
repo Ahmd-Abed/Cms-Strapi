@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "footer_globals",
+  "info": {
+    "singularName": "footer-global",
+    "pluralName": "footer-globals",
+    "displayName": "FooterGlobal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Footer": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "footer.footer-item"
+    }
+  }
+}

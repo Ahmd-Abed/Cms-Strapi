@@ -28,6 +28,33 @@ export interface CarouselCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface FooterFooterItem extends Struct.ComponentSchema {
+  collectionName: 'components_footer_footer_items';
+  info: {
+    displayName: 'FooterItem';
+    icon: 'check';
+  };
+  attributes: {
+    Footer: Schema.Attribute.Component<'footer.sub-footer-link', true>;
+    IsShown: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    Label: Schema.Attribute.String & Schema.Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FooterSubFooterLink extends Struct.ComponentSchema {
+  collectionName: 'components_footer_sub_footer_links';
+  info: {
+    displayName: 'SubFooterLink';
+    icon: 'calendar';
+  };
+  attributes: {
+    IsShown: Schema.Attribute.Boolean;
+    Label: Schema.Attribute.String & Schema.Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface NavbarNavItem extends Struct.ComponentSchema {
   collectionName: 'components_navbar_nav_items';
   info: {
@@ -157,6 +184,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about.about': AboutAbout;
       'carousel.carousel': CarouselCarousel;
+      'footer.footer-item': FooterFooterItem;
+      'footer.sub-footer-link': FooterSubFooterLink;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-navbar-item': NavbarSubNavbarItem;
       'news.news': NewsNews;

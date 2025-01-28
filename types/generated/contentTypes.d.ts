@@ -610,6 +610,43 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFooterGlobalFooterGlobal extends Struct.SingleTypeSchema {
+  collectionName: 'footer_globals';
+  info: {
+    displayName: 'FooterGlobal';
+    pluralName: 'footer-globals';
+    singularName: 'footer-global';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Footer: Schema.Attribute.Component<'footer.footer-item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-global.footer-global'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -642,6 +679,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Footer: Schema.Attribute.DynamicZone<['footer.footer-item']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1394,6 +1437,7 @@ declare module '@strapi/strapi' {
       'api::carousel-collection.carousel-collection': ApiCarouselCollectionCarouselCollection;
       'api::carousel-global.carousel-global': ApiCarouselGlobalCarouselGlobal;
       'api::category.category': ApiCategoryCategory;
+      'api::footer-global.footer-global': ApiFooterGlobalFooterGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::navbar-global.navbar-global': ApiNavbarGlobalNavbarGlobal;
       'api::news-collection.news-collection': ApiNewsCollectionNewsCollection;
