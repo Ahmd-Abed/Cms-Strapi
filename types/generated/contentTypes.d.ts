@@ -482,6 +482,7 @@ export interface ApiCarouselCollectionCarouselCollection
   extends Struct.CollectionTypeSchema {
   collectionName: 'carousel_collections';
   info: {
+    description: '';
     displayName: 'CarouselCollection';
     pluralName: 'carousel-collections';
     singularName: 'carousel-collection';
@@ -510,6 +511,13 @@ export interface ApiCarouselCollectionCarouselCollection
           localized: true;
         };
       }>;
+    IsShown: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
     Link: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -610,6 +618,93 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqCollectionFaqCollection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'faq_collections';
+  info: {
+    description: '';
+    displayName: 'FAQCollection';
+    pluralName: 'faq-collections';
+    singularName: 'faq-collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Answer: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    IsShown: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-collection.faq-collection'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Question: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.SingleTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    description: '';
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    FAQ: Schema.Attribute.Component<'faq.faq', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterGlobalFooterGlobal extends Struct.SingleTypeSchema {
   collectionName: 'footer_globals';
   info: {
@@ -669,7 +764,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'api::carousel-collection.carousel-collection'
     >;
     ContentHomePage: Schema.Attribute.DynamicZone<
-      ['about.about', 'quick-links.quick-links', 'carousel.carousel']
+      ['about.about', 'quick-links.quick-links', 'faq.faq']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -749,6 +844,7 @@ export interface ApiNewsCollectionNewsCollection
   extends Struct.CollectionTypeSchema {
   collectionName: 'news_collections';
   info: {
+    description: '';
     displayName: 'NewsCollection';
     pluralName: 'news-collections';
     singularName: 'news-collection';
@@ -786,6 +882,13 @@ export interface ApiNewsCollectionNewsCollection
           localized: true;
         };
       }>;
+    IsShown: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1437,6 +1540,8 @@ declare module '@strapi/strapi' {
       'api::carousel-collection.carousel-collection': ApiCarouselCollectionCarouselCollection;
       'api::carousel-global.carousel-global': ApiCarouselGlobalCarouselGlobal;
       'api::category.category': ApiCategoryCategory;
+      'api::faq-collection.faq-collection': ApiFaqCollectionFaqCollection;
+      'api::faq.faq': ApiFaqFaq;
       'api::footer-global.footer-global': ApiFooterGlobalFooterGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::navbar-global.navbar-global': ApiNavbarGlobalNavbarGlobal;

@@ -28,6 +28,20 @@ export interface CarouselCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface FaqFaq extends Struct.ComponentSchema {
+  collectionName: 'components_faq_faqs';
+  info: {
+    displayName: 'FAQ';
+    icon: 'bulletList';
+  };
+  attributes: {
+    faq_collections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::faq-collection.faq-collection'
+    >;
+  };
+}
+
 export interface FooterFooterItem extends Struct.ComponentSchema {
   collectionName: 'components_footer_footer_items';
   info: {
@@ -184,6 +198,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about.about': AboutAbout;
       'carousel.carousel': CarouselCarousel;
+      'faq.faq': FaqFaq;
       'footer.footer-item': FooterFooterItem;
       'footer.sub-footer-link': FooterSubFooterLink;
       'navbar.nav-item': NavbarNavItem;
