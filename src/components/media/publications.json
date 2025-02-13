@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_media_publications",
+  "info": {
+    "displayName": "Publications",
+    "icon": "file",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "publications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::publication.publication"
+    }
+  }
+}

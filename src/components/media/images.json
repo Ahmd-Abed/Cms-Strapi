@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_media_images",
+  "info": {
+    "displayName": "Images",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image-file.image-file"
+    }
+  }
+}

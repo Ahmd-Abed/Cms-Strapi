@@ -69,6 +69,48 @@ export interface FooterSubFooterLink extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaImages extends Struct.ComponentSchema {
+  collectionName: 'components_media_images';
+  info: {
+    description: '';
+    displayName: 'Images';
+    icon: 'landscape';
+  };
+  attributes: {
+    images: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::image-file.image-file'
+    >;
+  };
+}
+
+export interface MediaPublications extends Struct.ComponentSchema {
+  collectionName: 'components_media_publications';
+  info: {
+    description: '';
+    displayName: 'Publications';
+    icon: 'file';
+  };
+  attributes: {
+    publications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::publication.publication'
+    >;
+  };
+}
+
+export interface MediaVideos extends Struct.ComponentSchema {
+  collectionName: 'components_media_videos';
+  info: {
+    description: '';
+    displayName: 'Videos';
+    icon: 'picture';
+  };
+  attributes: {
+    videos: Schema.Attribute.Relation<'oneToMany', 'api::video.video'>;
+  };
+}
+
 export interface NavbarNavItem extends Struct.ComponentSchema {
   collectionName: 'components_navbar_nav_items';
   info: {
@@ -201,6 +243,9 @@ declare module '@strapi/strapi' {
       'faq.faq': FaqFaq;
       'footer.footer-item': FooterFooterItem;
       'footer.sub-footer-link': FooterSubFooterLink;
+      'media.images': MediaImages;
+      'media.publications': MediaPublications;
+      'media.videos': MediaVideos;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-navbar-item': NavbarSubNavbarItem;
       'news.news': NewsNews;
