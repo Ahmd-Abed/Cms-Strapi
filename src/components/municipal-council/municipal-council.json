@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_municipal_council_municipal_councils",
+  "info": {
+    "displayName": "MunicipalCouncil",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "string",
+      "required": false
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "SideBar": {
+      "type": "component",
+      "repeatable": true,
+      "component": "side-bar-municipal-council.item"
+    }
+  }
+}

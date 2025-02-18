@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_side_bar_municipal_council_sub_items",
+  "info": {
+    "displayName": "SubItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "required": true
+    },
+    "Link": {
+      "type": "string",
+      "required": true
+    },
+    "IsShown": {
+      "type": "boolean"
+    }
+  }
+}

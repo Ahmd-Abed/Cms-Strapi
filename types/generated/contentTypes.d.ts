@@ -923,6 +923,47 @@ export interface ApiMediaFileMediaFile extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMunicipalCouncilMunicipalCouncil
+  extends Struct.SingleTypeSchema {
+  collectionName: 'municipal_councils';
+  info: {
+    displayName: 'MunicipalCouncil';
+    pluralName: 'municipal-councils';
+    singularName: 'municipal-council';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::municipal-council.municipal-council'
+    >;
+    MunicipalCouncil: Schema.Attribute.Component<
+      'municipal-council.municipal-council',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavbarGlobalNavbarGlobal extends Struct.SingleTypeSchema {
   collectionName: 'navbar_globals';
   info: {
@@ -1189,6 +1230,44 @@ export interface ApiQuickLinksGlobalQuickLinksGlobal
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     QuickLinks: Schema.Attribute.Component<'quick-links.quick-links', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSideBarMunicipalCouncilGlobalSideBarMunicipalCouncilGlobal
+  extends Struct.SingleTypeSchema {
+  collectionName: 'side_bar_municipal_council_globals';
+  info: {
+    displayName: 'SideBarMunicipalCouncilGlobal';
+    pluralName: 'side-bar-municipal-council-globals';
+    singularName: 'side-bar-municipal-council-global';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Item: Schema.Attribute.Component<'side-bar-municipal-council.item', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::side-bar-municipal-council-global.side-bar-municipal-council-global'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1775,12 +1854,14 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::image-file.image-file': ApiImageFileImageFile;
       'api::media-file.media-file': ApiMediaFileMediaFile;
+      'api::municipal-council.municipal-council': ApiMunicipalCouncilMunicipalCouncil;
       'api::navbar-global.navbar-global': ApiNavbarGlobalNavbarGlobal;
       'api::news-collection.news-collection': ApiNewsCollectionNewsCollection;
       'api::news-global.news-global': ApiNewsGlobalNewsGlobal;
       'api::publication.publication': ApiPublicationPublication;
       'api::quick-links-collection.quick-links-collection': ApiQuickLinksCollectionQuickLinksCollection;
       'api::quick-links-global.quick-links-global': ApiQuickLinksGlobalQuickLinksGlobal;
+      'api::side-bar-municipal-council-global.side-bar-municipal-council-global': ApiSideBarMunicipalCouncilGlobalSideBarMunicipalCouncilGlobal;
       'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

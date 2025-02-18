@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_side_bar_municipal_council_items",
+  "info": {
+    "displayName": "Item",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Item": {
+      "type": "string",
+      "required": true
+    },
+    "SubItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "side-bar-municipal-council.sub-item",
+      "required": true
+    },
+    "IsShown": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

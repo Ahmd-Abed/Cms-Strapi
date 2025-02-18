@@ -111,6 +111,25 @@ export interface MediaVideos extends Struct.ComponentSchema {
   };
 }
 
+export interface MunicipalCouncilMunicipalCouncil
+  extends Struct.ComponentSchema {
+  collectionName: 'components_municipal_council_municipal_councils';
+  info: {
+    description: '';
+    displayName: 'MunicipalCouncil';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Description: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images', true>;
+    SideBar: Schema.Attribute.Component<
+      'side-bar-municipal-council.item',
+      true
+    >;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface NavbarNavItem extends Struct.ComponentSchema {
   collectionName: 'components_navbar_nav_items';
   info: {
@@ -235,6 +254,38 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SideBarMunicipalCouncilItem extends Struct.ComponentSchema {
+  collectionName: 'components_side_bar_municipal_council_items';
+  info: {
+    description: '';
+    displayName: 'Item';
+    icon: 'apps';
+  };
+  attributes: {
+    IsShown: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    Item: Schema.Attribute.String & Schema.Attribute.Required;
+    SubItem: Schema.Attribute.Component<
+      'side-bar-municipal-council.sub-item',
+      true
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface SideBarMunicipalCouncilSubItem extends Struct.ComponentSchema {
+  collectionName: 'components_side_bar_municipal_council_sub_items';
+  info: {
+    description: '';
+    displayName: 'SubItem';
+    icon: 'bulletList';
+  };
+  attributes: {
+    IsShown: Schema.Attribute.Boolean;
+    Label: Schema.Attribute.String & Schema.Attribute.Required;
+    Link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -246,6 +297,7 @@ declare module '@strapi/strapi' {
       'media.images': MediaImages;
       'media.publications': MediaPublications;
       'media.videos': MediaVideos;
+      'municipal-council.municipal-council': MunicipalCouncilMunicipalCouncil;
       'navbar.nav-item': NavbarNavItem;
       'navbar.sub-navbar-item': NavbarSubNavbarItem;
       'news.news': NewsNews;
@@ -255,6 +307,8 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'side-bar-municipal-council.item': SideBarMunicipalCouncilItem;
+      'side-bar-municipal-council.sub-item': SideBarMunicipalCouncilSubItem;
     }
   }
 }

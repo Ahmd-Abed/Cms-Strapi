@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "side_bar_municipal_council_globals",
+  "info": {
+    "singularName": "side-bar-municipal-council-global",
+    "pluralName": "side-bar-municipal-council-globals",
+    "displayName": "SideBarMunicipalCouncilGlobal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Item": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "side-bar-municipal-council.item"
+    }
+  }
+}

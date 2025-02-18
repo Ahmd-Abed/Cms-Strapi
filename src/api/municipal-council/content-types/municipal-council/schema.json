@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "municipal_councils",
+  "info": {
+    "singularName": "municipal-council",
+    "pluralName": "municipal-councils",
+    "displayName": "MunicipalCouncil"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "MunicipalCouncil": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "municipal-council.municipal-council"
+    }
+  }
+}
